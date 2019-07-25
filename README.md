@@ -25,3 +25,5 @@ Fuentes:
 + https://sailsjs.com/documentation/anatomy/api/controllers
 + https://github.com/balderdashy/sails/issues/2133
 + https://sailsjs.com/documentation/reference/command-line-interface/sails-generate
++ https://sailsjs.com/documentation/concepts/globals
++ https://sailsjs.com/documentation/concepts/helpers/example-helper

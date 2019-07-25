@@ -19,7 +19,10 @@ module.exports = {
     console.log(x);
     console.log('3+++++++++++++++++++++++++++++');
     sails.log.debug('TODO: implement???');
+    var locals = {
+      constants: sails.config.globals.data,
+    };
     // return res.send('hola');
-    return res.view('home/index', {});
+    return res.view('home/index', locals);
   }, 
 };

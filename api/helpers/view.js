@@ -19,9 +19,10 @@ module.exports = {
   },
   fn: async function (inputs, exits) {
     // TODO
-    console.log('alsdkfjaldksfj');
-    console.log(inputs);
-    console.log(exits);
+    // console.log('alsdkfjaldksfj');
+    // console.log(inputs);
+    // console.log(exits);
+    // console.log(sails.config.globals.data);
     //throw 'recordNotFound';
     return exits.success('=)');
   }
