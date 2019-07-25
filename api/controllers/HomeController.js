@@ -19,6 +19,7 @@ module.exports = {
     console.log(x);
     console.log('3+++++++++++++++++++++++++++++');
     sails.log.debug('TODO: implement???');
-    return res.send('hola');
+    // return res.send('hola');
+    return res.view('home/index', {});
   }, 
 };
