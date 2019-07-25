@@ -18,9 +18,9 @@ module.exports = {
       rpta.css = [
         'bower_components/bootstrap/dist/css/bootstrap.min',
         'bower_components/font-awesome/css/font-awesome.min',
-        'assets/css/constants',
-        'assets/css/styles',
-        'assets/css/home',
+        'styles/constants',
+        'styles/styles',
+        'styles/home',
       ];
     } else if(sails.config.globals.data.static == 'prod'){
       rpta.css = [
