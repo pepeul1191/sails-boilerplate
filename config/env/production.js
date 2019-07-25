@@ -391,6 +391,9 @@ module.exports = {
 
   },
 
+  // custom
 
-
+  hooks: {
+    morgan: false
+  },
 };

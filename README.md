@@ -27,3 +27,4 @@ Fuentes:
 + https://sailsjs.com/documentation/reference/command-line-interface/sails-generate
 + https://sailsjs.com/documentation/concepts/globals
 + https://sailsjs.com/documentation/concepts/helpers/example-helper
++ https://www.npmjs.com/package/sails-hook-morgan
