@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= locals.title %></title>
+    <link rel="shortcut icon" href="<%= constants.static_url %>favicon.ico">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Inicio Load_CSS-->
+    
+    <!-- Fin CSS-->
+    <script type="text/javascript">
+      var BASE_URL = '<%= sails.config.views.base_url() %>';
+      var STATICS_URL  = '<%= sails.config.views.static_url() %>';
+      var CSRF = "<%= sails.config.views.csrf_secret() %>";
+      var CSRF_KEY = "<%= sails.config.views.csrf_key() %>";
+    </script>
+  </head>
+  <body>
