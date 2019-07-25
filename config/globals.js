@@ -53,8 +53,8 @@ module.exports.globals = {
   
   data: {
     sistema_id: 1,
-    base_url: 'http://localhost:3000/',
-    static_url: 'http://localhost:3000/',
+    base_url: 'http://localhost:1337/',
+    static_url: 'http://localhost:1337/',
     static: 'dev',
     csrf: {
       secret: 'mpt/sr6eS2AlCRHU7DVThMgFTN08pnfSDf/C94eZx7udfm0lvgaYWLYJttYPKzGKDTlXwVU/d2FOxbKkgNlsTw==',
