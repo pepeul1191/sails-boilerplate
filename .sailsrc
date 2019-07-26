@@ -8,5 +8,9 @@
   },
   "paths": {
     "public": "assets"
+  },
+  "hooks": {
+    "orm": false,
+    "pubsub": false
   }
 }

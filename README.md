@@ -6,6 +6,11 @@ Instalar sails de manera global:
 
     $ npm install -g sails
 
+Arrancar la aplicación:
+
+    $ sails lift
+    $ sails lift --port=1337
+
 Generar controlador <<nombre>>:
 
     $ sails generate api <<nombre>>
@@ -28,3 +33,4 @@ Fuentes:
 + https://sailsjs.com/documentation/concepts/globals
 + https://sailsjs.com/documentation/concepts/helpers/example-helper
 + https://www.npmjs.com/package/sails-hook-morgan
++ https://stackoverflow.com/questions/21505674/is-there-a-way-to-disable-waterline-and-use-a-different-orm-in-sails-js

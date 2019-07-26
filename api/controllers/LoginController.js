@@ -21,6 +21,7 @@ module.exports = {
       message_status: '',
       lang: lang,
     };
+    console.log(req.session);
     return res.view('login/index', locals);
   }, 
   async indexAccess(req, res) {
@@ -29,22 +30,22 @@ module.exports = {
     var message_status = 'color-error';
     var message = '';
     // check user in service
-    var resp = await userAccessService.access(req.body.user, req.body.pass);
-    if(resp.status == 200){
-      if(resp.body == 'activation_pending'){
+    var response = await userAccessService.access(req.body.user, req.body.pass);
+    if(response.status == 200){
+      if(response.body == 'activation_pending'){
         message = 'Activación de usuario pendiente';
-      }else if(resp.body == 'suspended'){
+      }else if(response.body == 'suspended'){
         message = 'Usuario suspendido';
-      }else if(resp.body == 'deleted'){
+      }else if(response.body == 'deleted'){
         message = 'Usuario eliminado';
-      }else if(resp.body == 'active'){
+      }else if(response.body == 'active'){
         // create session and redirect
         req.session.state= 'active';
         req.session.user = req.body.user;
-        req.session.momento = new Date();
+        req.session.moment = new Date();
         res.redirect(sails.config.globals.data.base_url);
       }
-    }else if(resp.status == 409){
+    }else if(response.status == 409){
       message = 'Usuario y/o contraseña no coinciden';
     }else{
       message = 'Ocurrió un error en validar el acceso';
