@@ -18,7 +18,7 @@ module.exports = {
       title: sails.config.contents.titles()[lang]['login_index'],
       contents: sails.config.contents.get('login')[lang],
       message: '',
-      message_status: '',
+      message_status: ' ',
       lang: lang,
     };
     console.log(req.session);
@@ -40,10 +40,10 @@ module.exports = {
         message = 'Usuario eliminado';
       }else if(response.body == 'active'){
         // create session and redirect
-        req.session.state= 'active';
+        req.session.state = 'active';
         req.session.user = req.body.user;
         req.session.moment = new Date();
-        res.redirect(sails.config.globals.data.base_url);
+        return res.redirect(sails.config.globals.data.base_url);
       }
     }else if(response.status == 409){
       message = 'Usuario y/o contraseña no coinciden';

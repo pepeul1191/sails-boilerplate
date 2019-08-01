@@ -30,7 +30,9 @@ Fuentes:
 + https://sailsjs.com/documentation/anatomy/api/controllers
 + https://github.com/balderdashy/sails/issues/2133
 + https://sailsjs.com/documentation/reference/command-line-interface/sails-generate
++ https://sailsjs.com/documentation/concepts/policies
 + https://sailsjs.com/documentation/concepts/globals
 + https://sailsjs.com/documentation/concepts/helpers/example-helper
 + https://www.npmjs.com/package/sails-hook-morgan
 + https://stackoverflow.com/questions/21505674/is-there-a-way-to-disable-waterline-and-use-a-different-orm-in-sails-js
++ https://github.com/sgress454/sails-hook-autoreload

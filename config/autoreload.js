@@ -5,7 +5,8 @@ module.exports.autoreload = {
     'api/models',
     'api/controllers',
     'api/services',
-    'config/locales'
+    'api/policies',
+    'config/locales',
   ],
   ignored: [
     // Ignore all files with .ts extension

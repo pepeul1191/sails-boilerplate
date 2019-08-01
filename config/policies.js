@@ -18,5 +18,8 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
-
+  LoginController: {
+    index: ['sessionActiveGoHome'],
+    indexAccess: ['sessionActiveGoHome'],
+  },
 };
