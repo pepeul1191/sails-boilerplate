@@ -24,8 +24,8 @@ module.exports = {
       email: email,
     });
   },
-  async activate(_id, activation_key){
-    return unirest.post(sails.config.globals.services.access.url + 'user/activate')
+  async checkActivate(_id, activation_key){
+    return unirest.post(sails.config.globals.services.access.url + 'user/check/activate')
     .headers({
       [sails.config.globals.services.access.csrf_key]: 
         sails.config.globals.services.access.csrf_secret,
@@ -35,8 +35,8 @@ module.exports = {
       activation_key: activation_key,
     });
   },
-  async reset(_id, pass, reset_key){
-    return unirest.post(sails.config.globals.services.access.url + 'user/reset')
+  async checkReset(_id, pass, reset_key){
+    return unirest.post(sails.config.globals.services.access.url + 'user/check/reset')
     .headers({
       [sails.config.globals.services.access.csrf_key]: 
         sails.config.globals.services.access.csrf_secret,
@@ -45,6 +45,16 @@ module.exports = {
       _id: _id,
       pass: pass,
       reset_key: reset_key,
+    });
+  },
+  async reset(email){
+    return unirest.post(sails.config.globals.services.access.url + 'user/reset')
+    .headers({
+      [sails.config.globals.services.access.csrf_key]: 
+        sails.config.globals.services.access.csrf_secret,
+    })
+    .send({
+      email: email,
     });
   },
 };

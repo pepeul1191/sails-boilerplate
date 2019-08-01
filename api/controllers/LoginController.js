@@ -5,7 +5,7 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-const userAccessService = require('../services/access/user_service');
+const accessUserService = require('../services/access/UserService');
 
 module.exports = {
   async index(req, res) {
@@ -30,7 +30,10 @@ module.exports = {
     var message_status = 'color-error';
     var message = '';
     // check user in service
-    var response = await userAccessService.access(req.body.user, req.body.pass);
+    var response = await accessUserService.access(
+      req.body.user, 
+      req.body.pass
+    );
     if(response.status == 200){
       if(response.body == 'activation_pending'){
         message = 'Activación de usuario pendiente';
@@ -84,7 +87,7 @@ module.exports = {
     var message_status = 'color-error';
     var message = '';
     // check user in service
-    var response = await userAccessService.create(
+    var response = await accessUserService.create(
       req.body.user, 
       req.body.pass, 
       req.body.email,
@@ -118,7 +121,7 @@ module.exports = {
     var locals = {
       constants: sails.config.globals.data,
       statics: await sails.helpers.loginStatic(),
-      title: sails.config.contents.titles()[lang]['login_sign_in'],
+      title: sails.config.contents.titles()[lang]['login_reset'],
       contents: sails.config.contents.get('login')[lang],
       message: '',
       message_status: ' ',
@@ -128,7 +131,34 @@ module.exports = {
     return res.view('login/reset_password', locals);
   },
   async reset(req, res){
-
+    // data
+    var lang = 'sp';
+    var message_status = 'color-error';
+    var message = '';
+    // check user in service
+    var response = await accessUserService.reset(
+      req.body.email,
+    );
+    if(response.status == 200){
+      message = 'Revise su correo para cambiar su contraseña';
+      message_status = 'color-success';
+      // TODO: enviar correo de activación con _id y reset_key de JSON.parse(response.body)
+    }else if(response.status == 409){
+      message = 'Correo no registrado';
+    }else{
+      message = 'Ocurrió un error en enviar el correo de cambio de contraseña';
+    }
+    // response
+    var locals = {
+      constants: sails.config.globals.data,
+      statics: await sails.helpers.loginStatic(),
+      title: sails.config.contents.titles()[lang]['login_reset'],
+      contents: sails.config.contents.get('login')[lang],
+      message: message,
+      message_status: message_status,
+      lang: lang,
+    };
+    return res.view('login/reset_password', locals);
   },
   async activate(req, res){
 
