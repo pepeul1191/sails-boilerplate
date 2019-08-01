@@ -36,3 +36,4 @@ Fuentes:
 + https://www.npmjs.com/package/sails-hook-morgan
 + https://stackoverflow.com/questions/21505674/is-there-a-way-to-disable-waterline-and-use-a-different-orm-in-sails-js
 + https://github.com/sgress454/sails-hook-autoreload
++ https://stackoverflow.com/questions/22288720/passing-parameters-to-sails-js-policies/30865238

@@ -21,7 +21,7 @@ module.exports = {
       message_status: ' ',
       lang: lang,
     };
-    console.log(req.session);
+    // console.log(req.session);
     return res.view('login/index', locals);
   }, 
   async indexAccess(req, res) {

@@ -27,6 +27,9 @@ module.exports.routes = {
   'GET  /login': 'LoginController.index',
   'POST /login': 'LoginController.indexAccess',
 
+  // demo
+
+  'GET  /student/list': 'StudentController.list',
 
   /***************************************************************************
   *                                                                          *

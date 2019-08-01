@@ -16,7 +16,9 @@
     "sails-hook-morgan": "^1.0.3",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
-    "unirest": "^0.6.0"
+    "unirest": "^0.6.0",
+    "sequelize": "^5.10.1",
+    "sqlite3": "^4.0.9"
   },
   "devDependencies": {
     "eslint": "5.16.0"
