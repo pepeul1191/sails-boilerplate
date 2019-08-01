@@ -12,7 +12,6 @@ module.exports = {
       statics: await sails.helpers.homeStatic(),
       title: 'Home',
     };
-    console.log(req.session);
     // return res.send('hola');
     return res.view('home/index', locals);
   }, 

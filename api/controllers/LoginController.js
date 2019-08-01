@@ -62,5 +62,37 @@ module.exports = {
     };
     return res.view('login/index', locals);
   }, 
+  async signIn(req, res){
+    // data
+    var lang = 'sp';
+    // response
+    var locals = {
+      constants: sails.config.globals.data,
+      statics: await sails.helpers.loginStatic(),
+      title: sails.config.contents.titles()[lang]['login_sign_in'],
+      contents: sails.config.contents.get('login')[lang],
+      message: '',
+      message_status: ' ',
+      lang: lang,
+    };
+    // console.log(req.session);
+    return res.view('login/sign_in', locals);
+  },
+  async resetPassword(req, res){
+    // data
+    var lang = 'sp';
+    // response
+    var locals = {
+      constants: sails.config.globals.data,
+      statics: await sails.helpers.loginStatic(),
+      title: sails.config.contents.titles()[lang]['login_sign_in'],
+      contents: sails.config.contents.get('login')[lang],
+      message: '',
+      message_status: ' ',
+      lang: lang,
+    };
+    // console.log(req.session);
+    return res.view('login/reset_password', locals);
+  },
 };
 
