@@ -78,6 +78,39 @@ module.exports = {
     // console.log(req.session);
     return res.view('login/sign_in', locals);
   },
+  async create(req, res){
+    // data
+    var lang = 'sp';
+    var message_status = 'color-error';
+    var message = '';
+    // check user in service
+    var response = await userAccessService.create(
+      req.body.user, 
+      req.body.pass, 
+      req.body.email,
+      sails.config.globals.data.system_id,
+    );
+    if(response.status == 200){
+      message = 'Usuario creado, revise su correo para activar su cuenta';
+      message_status = 'color-success';
+      // TODO: enviar correo de activación con _id y activation_key de JSON.parse(response.body)
+    }else if(response.status == 409){
+      message = 'Usuario y/o correo repetidos';
+    }else{
+      message = 'Ocurrió un error en crear el usuario';
+    }
+    // response
+    var locals = {
+      constants: sails.config.globals.data,
+      statics: await sails.helpers.loginStatic(),
+      title: sails.config.contents.titles()[lang]['login_sign_in'],
+      contents: sails.config.contents.get('login')[lang],
+      message: message,
+      message_status: message_status,
+      lang: lang,
+    };
+    return res.view('login/sign_in', locals);
+  },
   async resetPassword(req, res){
     // data
     var lang = 'sp';
@@ -93,6 +126,12 @@ module.exports = {
     };
     // console.log(req.session);
     return res.view('login/reset_password', locals);
+  },
+  async reset(req, res){
+
+  },
+  async activate(req, res){
+
   },
 };
 

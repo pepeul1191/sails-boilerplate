@@ -27,9 +27,9 @@ module.exports.routes = {
   'GET  /login': 'LoginController.index',
   'POST /login': 'LoginController.indexAccess',
   'GET  /login/sign_in': 'LoginController.signIn',
+  'POST  /login/sign_in': 'LoginController.create',
   'GET  /login/reset_password': 'LoginController.resetPassword',
-  //'POST  /login/sign_in': 'LoginController.create',
-  //'POST  /login/reset_password': 'LoginController.reset',
+  'POST  /login/reset_password': 'LoginController.reset',
 
   // demo
 

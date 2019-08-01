@@ -52,7 +52,7 @@ module.exports.globals = {
   // customs
   
   data: {
-    system_id: 1,
+    system_id: '5d38e2466a354f35c722b047',
     base_url: 'http://localhost:1337/',
     static_url: 'http://localhost:1337/',
     static: 'dev',
