@@ -23,6 +23,10 @@ Para corregir el error ENOSPC en caso de presentarse:
 
     $ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
+Dejar de seguir versionando archivo pero sin eliminar:
+
+    $ git update-index --assume-unchanged config/mail.js
+
 ---
 
 Fuentes:

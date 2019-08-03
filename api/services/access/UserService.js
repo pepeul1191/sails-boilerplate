@@ -24,6 +24,16 @@ module.exports = {
       email: email,
     });
   },
+  async delete(user_id){
+    return unirest.post(sails.config.globals.services.access.url + 'user/delete')
+    .headers({
+      [sails.config.globals.services.access.csrf_key]: 
+        sails.config.globals.services.access.csrf_secret,
+    })
+    .send({
+      _id: user_id,
+    });
+  },
   async checkActivate(_id, activation_key){
     return unirest.post(sails.config.globals.services.access.url + 'user/check/activate')
     .headers({
