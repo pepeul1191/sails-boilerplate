@@ -98,7 +98,7 @@ module.exports = {
     if(response.status == 200){
       message = 'Usuario creado, revise su correo para activar su cuenta';
       message_status = 'color-success';
-      // correo de activación con _id y activation_key de JSON.parse(response.body)
+      // activation email con _id and activation_key from JSON.parse(response.body)
       var temp = JSON.parse(response.body);
       var mailResponse = await welcomeUserMail(
         req.body.user, 
@@ -106,9 +106,6 @@ module.exports = {
         temp._id, 
         temp.activation_key
       );
-      console.log('1 +++++++++++++++++++++++++++++');
-      console.log(mailResponse);
-      console.log('2 +++++++++++++++++++++++++++++');
       if(mailResponse.status == 'error'){
         // delete create user and send message error
         message = 'Ocurrió un error, vuelva a crear su usuario';
@@ -160,9 +157,17 @@ module.exports = {
     if(response.status == 200){
       message = 'Revise su correo para cambiar su contraseña';
       message_status = 'color-success';
-      // TODO: enviar correo de activación con _id y reset_key de JSON.parse(response.body)
+      // reset pass email con _id and reset_key from JSON.parse(response.body)
       var temp = JSON.parse(response.body);
-      // restorePasswordMail(req.body.email, temp._id, temp.reset_key);
+      var mailResponse = await restorePasswordMail(
+        req.body.email, 
+        temp._id, 
+        temp.reset_key
+      );
+      if(mailResponse.status == 'error'){
+        message = 'Ocurrió un error, vuelva a crear su usuario';
+        message_status = 'color-error';
+      }
     }else if(response.status == 409){
       message = 'Correo no registrado';
     }else{
