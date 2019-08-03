@@ -5,6 +5,7 @@ module.exports.autoreload = {
     'api/models',
     'api/controllers',
     'api/services',
+    'api/mails',
     'api/policies',
     'config/locales',
   ],

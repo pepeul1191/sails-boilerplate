@@ -10,15 +10,17 @@
     "@sailshq/socket.io-redis": "^5.2.0",
     "grunt": "1.0.4",
     "js-yaml": "^3.13.1",
+    "mail": "^0.2.3",
     "sails": "^1.2.3",
     "sails-hook-autoreload": "^1.1.0",
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-morgan": "^1.0.3",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
-    "unirest": "^0.6.0",
+    "nodemailer": "^6.3.0",
     "sequelize": "^5.10.1",
-    "sqlite3": "^4.0.9"
+    "sqlite3": "^4.0.9",
+    "unirest": "^0.6.0"
   },
   "devDependencies": {
     "eslint": "5.16.0"

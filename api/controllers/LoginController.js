@@ -6,6 +6,8 @@
  */
 
 const accessUserService = require('../services/access/UserService');
+const restorePasswordMail = require('../mails/restorePasswordMail');
+const welcomeUserMail = require('../mails/welcomeUserMail');
 
 module.exports = {
   async index(req, res) {
@@ -96,7 +98,9 @@ module.exports = {
     if(response.status == 200){
       message = 'Usuario creado, revise su correo para activar su cuenta';
       message_status = 'color-success';
-      // TODO: enviar correo de activación con _id y activation_key de JSON.parse(response.body)
+      // correo de activación con _id y activation_key de JSON.parse(response.body)
+      var temp = JSON.parse(response.body);
+      welcomeUserMail(req.body.user, req.body.email, temp._id, temp.activation_key);
     }else if(response.status == 409){
       message = 'Usuario y/o correo repetidos';
     }else{
@@ -143,6 +147,8 @@ module.exports = {
       message = 'Revise su correo para cambiar su contraseña';
       message_status = 'color-success';
       // TODO: enviar correo de activación con _id y reset_key de JSON.parse(response.body)
+      var temp = JSON.parse(response.body);
+      // restorePasswordMail(req.body.email, temp._id, temp.reset_key);
     }else if(response.status == 409){
       message = 'Correo no registrado';
     }else{

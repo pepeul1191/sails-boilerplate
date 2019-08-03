@@ -6,7 +6,7 @@ sp:
   placeholder_password: Contraseña
   placeholder_email: Correo Electrónico
   button_login: Ingresar
-  button_reset: Restablecer
+  button_reset: Enviar Correo
   button_sign_in: Registrarse
   sign_in: Registrarse
   login: Ingresar
