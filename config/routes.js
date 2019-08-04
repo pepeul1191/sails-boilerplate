@@ -23,13 +23,14 @@ module.exports.routes = {
   'GET /': 'HomeController.index',
   
   // login
-
   'GET  /login': 'LoginController.index',
   'POST /login': 'LoginController.indexAccess',
   'GET  /login/sign_in': 'LoginController.signIn',
-  'POST  /login/sign_in': 'LoginController.create',
+  'POST /login/sign_in': 'LoginController.create',
   'GET  /login/reset_password': 'LoginController.resetPassword',
-  'POST  /login/reset_password': 'LoginController.reset',
+  'POST /login/reset_password': 'LoginController.reset',
+  // error
+  'GET  /error/access/:error': 'ErrorController.access',
 
   // demo
 

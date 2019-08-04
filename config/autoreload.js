@@ -7,6 +7,8 @@ module.exports.autoreload = {
     'api/services',
     'api/mails',
     'api/policies',
+    'api/responses',
+    'api/helpers',
     'config/locales',
   ],
   ignored: [

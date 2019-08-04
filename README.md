@@ -11,13 +11,17 @@ Arrancar la aplicación:
     $ sails lift
     $ sails lift --port=1337
 
-Generar controlador <<nombre>>:
+Generar controlador nombre:
 
-    $ sails generate api <<nombre>>
+    $ sails generate api nombre
 
-Generar helper <<nombre>>:
+Generar helper nombre:
 
-    $ sails generate helper <<nombre>>
+    $ sails generate helper nombre
+
+Generar response nombre
+
+    $ sails generate response nombre
 
 Para corregir el error ENOSPC en caso de presentarse:
 
@@ -26,6 +30,11 @@ Para corregir el error ENOSPC en caso de presentarse:
 Dejar de seguir versionando archivo pero sin eliminar:
 
     $ git update-index --assume-unchanged config/mail.js
+
+### Algunas datos importantes
+
++ Listas de controles de accesos en config/policies.,js
++ Sobreescribir 404 error
 
 ---
 
