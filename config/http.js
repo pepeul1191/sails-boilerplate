@@ -29,18 +29,41 @@ module.exports.http = {
     *                                                                          *
     ***************************************************************************/
 
-    // order: [
-    //   'cookieParser',
-    //   'session',
-    //   'bodyParser',
-    //   'compress',
-    //   'poweredBy',
-    //   'router',
-    //   'www',
-    //   'favicon',
-    // ],
+    order: [
+      'cookieParser',
+      'session',
+      'bodyParser',
+      'compress',
+      'poweredBy',
+      'router',
+      'www',
+      'favicon',
+      'error',
+    ],
 
-
+    error: (function (req, res, next){
+      var lang = 'sp';
+      try {
+        if (req.method == 'GET'){
+          var static_extensions = ['css', 'js', 'png', 'jpg', ];
+          var resource = req.url;
+          resource = resource.split('.');
+          if(static_extensions.indexOf(resource[resource.length - 1]) == -1){
+            res.redirect(sails.config.globals.data.base_url + 'error/access/404');
+          }else{
+            next();
+          }
+        }else{ 
+          res.status(404);
+          return res.send(sails.config.contents.get('error')[lang].error_handler.post_404);
+        }
+        // next();
+      } catch (err) {
+        console.log(err);
+        res.status(500);
+        return res.send(err.stack);
+      }
+    }),
     /***************************************************************************
     *                                                                          *
     * The body parser that will handle incoming multipart HTTP requests.       *

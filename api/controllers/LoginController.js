@@ -65,6 +65,7 @@ module.exports = {
       message_status: message_status,
       lang: lang,
     };
+    res.status(500);
     return res.view('login/index', locals);
   }, 
   async signIn(req, res){
@@ -110,11 +111,14 @@ module.exports = {
         // delete create user and send message error
         message = 'Ocurrió un error, vuelva a crear su usuario';
         message_status = 'color-error';
+        res.status(500);
         await accessUserService.delete(temp._id);
       }
     }else if(response.status == 409){
+      res.status(500);
       message = 'Usuario y/o correo repetidos';
     }else{
+      res.status(500);
       message = 'Ocurrió un error en crear el usuario';
     }
     // response
@@ -165,12 +169,15 @@ module.exports = {
         temp.reset_key
       );
       if(mailResponse.status == 'error'){
+        res.status(500);
         message = 'Ocurrió un error, vuelva a crear su usuario';
         message_status = 'color-error';
       }
     }else if(response.status == 409){
+      res.status(500);
       message = 'Correo no registrado';
     }else{
+      res.status(500);
       message = 'Ocurrió un error en enviar el correo de cambio de contraseña';
     }
     // response
@@ -183,7 +190,7 @@ module.exports = {
       message_status: message_status,
       lang: lang,
     };
-    return res.view('login/reset_password', locals);
+    return res.view('login/reset_passwordd', locals);
   },
   async activate(req, res){
 
