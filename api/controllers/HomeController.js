@@ -10,7 +10,7 @@ module.exports = {
     var locals = {
       constants: sails.config.globals.data,
       statics: await sails.helpers.homeStatic(),
-      title: 'Home',
+      title: 'HomeXD',
     };
     // return res.send('hola');
     return res.view('home/index', locals);
